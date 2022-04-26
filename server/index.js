@@ -7,11 +7,12 @@ import postRoutes from './routes/posts.js';
 //initalizing the APP
 const app = express();
 
-app.use('/posts',postRoutes);
 //Setting body parser to complete request
 app.use(bodyParser.json({limit: "30mb",extended:true}));
 app.use(bodyParser.urlencoded({limit: "30mb",extended:true}));
 app.use(cors());
+
+app.use('/posts',postRoutes);
 
 //Connecting server application with database specifically mongodb
 const CONNECTION_URL = 'mongodb+srv://MemoriesTest:pE6te8Cmv3vuKOi3@cluster0.9niki.mongodb.net/MemoriesTest?retryWrites=true&w=majority'
